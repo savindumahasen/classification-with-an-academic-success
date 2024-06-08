@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/data', [DataController::class, 'showData']);
+
+Route::get('/login', [DataController::class,'login']);
