@@ -22,6 +22,6 @@ class DataController extends Controller
 
     public function login()
     {
-        return view('login.view');
+        return view('login');
     }
 }
