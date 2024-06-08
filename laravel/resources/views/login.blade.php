@@ -46,19 +46,9 @@
                   </div>
                 </div>
 
-                <div class="form-group nm_lk"><p>Or Login With</p></div>
+                <div class="form-group nm_lk"></div>
 
-                <div class="form-group pt-0">
-                  <div class="_social_04">
-                    <ol>
-                      <li><i class="fa fa-facebook"></i></li>
-                      <li><i class="fa fa-twitter"></i></li>
-                      <li><i class="fa fa-google-plus"></i></li>
-                      <li><i class="fa fa-instagram"></i></li>
-                      <li><i class="fa fa-linkedin"></i></li>
-                    </ol>
-                  </div>
-                </div>
+             
               </div>
             </div>
           </div>
