@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,5 +18,10 @@ class DataController extends Controller
 
         // You can now use $data for further processing or return it as a response
         return response()->json($data);
+    }
+
+    public function login()
+    {
+        return view('login.view');
     }
 }
