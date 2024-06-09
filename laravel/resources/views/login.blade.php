@@ -23,6 +23,7 @@
                   <img src="assets/images/user.png">
                 </div>
                 <form method="post" action="/logindetails">
+                  {{csrf_field()}}
                   <div class="form-group">
                     <input type="email" name="email" class="form-control _ge_de_ol" type="text" placeholder="Enter Email" required="" aria-required="true">
                   </div>
