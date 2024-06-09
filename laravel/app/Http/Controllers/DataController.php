@@ -35,8 +35,19 @@ class DataController extends Controller
     }
 
     public function logincredentials(Request $request){
+        $userName = $request->input('email');
+        $userPassword = $request->input('password');
 
-        dd($request);
+        $data =login::all();
+        foreach ($data as  $datas){
+            if (($userName ==$datas->username)&& ($userPassword==$datas->password)){
+                echo "Loggin is successfully confirmed";
+            }else{
+                echo "Loggin is not successfully confirmed";
+            }
+
+       ## dd($request->all());
 
     }
+}
 }

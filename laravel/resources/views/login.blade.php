@@ -31,7 +31,7 @@
                   <div class="form-group">
                     <input type="password" name="password" class="form-control _ge_de_ol" type="text" placeholder="Enter Password" required="" aria-required="true">
                   </div>
-                </form>
+              
 
                 <div class="checkbox form-group">
                   <div class="form-check">
@@ -44,10 +44,12 @@
                 </div>
 
                 <div class="form-group">
-                  <div class="_btn_04">
-                    <a type="submit">Login</a>
-                  </div>
+                
+                    <button  style="margin-left:-20px; width:450px;background-color:#6E33FF;color:white;border:none;height:50px;
+                    border-radius:5px;" type="submit">Login</button>
                 </div>
+
+                </form>
 
                 <div class="form-group nm_lk"><p>Or Login With</p></div>
 
