@@ -22,13 +22,15 @@
                 <div class="logo">
                   <img src="assets/images/user.png">
                 </div>
-                <div class="form-group">
-                  <input type="email" name="email" class="form-control _ge_de_ol" type="text" placeholder="Enter Email" required="" aria-required="true">
-                </div>
+                <form method="post" action="/logindetails">
+                  <div class="form-group">
+                    <input type="email" name="email" class="form-control _ge_de_ol" type="text" placeholder="Enter Email" required="" aria-required="true">
+                  </div>
 
-                <div class="form-group">
-                  <input type="password" name="password" class="form-control _ge_de_ol" type="text" placeholder="Enter Password" required="" aria-required="true">
-                </div>
+                  <div class="form-group">
+                    <input type="password" name="password" class="form-control _ge_de_ol" type="text" placeholder="Enter Password" required="" aria-required="true">
+                  </div>
+                </form>
 
                 <div class="checkbox form-group">
                   <div class="form-check">
@@ -42,7 +44,7 @@
 
                 <div class="form-group">
                   <div class="_btn_04">
-                    <a href="#">Login</a>
+                    <a type="submit">Login</a>
                   </div>
                 </div>
 
