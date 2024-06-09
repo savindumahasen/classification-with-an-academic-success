@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\login;
+
 
 class DataController extends Controller
 {
@@ -23,5 +25,18 @@ class DataController extends Controller
     public function login()
     {
         return view('login');
+    }
+
+
+    public function showlogindetails(){
+        $data =login::all();
+        dd($data);
+
+    }
+
+    public function logincredentials(Request $request){
+
+        dd($request);
+
     }
 }
