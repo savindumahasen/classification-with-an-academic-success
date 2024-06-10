@@ -100,14 +100,14 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-6 form-group" style="margin-left: -440px;">
-                    <label for="inputData11">2nd Sem (Grade)</label>
-                    <input type="text" class="form-control" id="inputData11" name="name10" placeholder="Enter input data">
+                <div class="col-md-6 form-group" style="margin-left: 30px;">
+                    <label for="inputData11"  style="margin-left: 60px;">2nd Sem (Grade)</label>
+                    <input type="text" class="form-control" id="inputData11" style="margin-left:-20px;" name="name10" placeholder="Enter input data">
                 </div>
             </div>
             <br>
             <div class="row justify-content-center">
-                <button type="submit" class="btn btn-primary" style="width: 150px;">Predict</button>
+                <button type="submit" class="btn btn-primary" style="width: 200px; border-radius:10px">Predict</button>
             </div>
         </form>
         <div class="mt-3">
