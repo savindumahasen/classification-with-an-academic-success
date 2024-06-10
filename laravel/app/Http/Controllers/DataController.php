@@ -41,7 +41,7 @@ class DataController extends Controller
         $data =login::all();
         foreach ($data as  $datas){
             if (($userName ==$datas->username)&& ($userPassword==$datas->password)){
-                echo "Loggin is successfully confirmed";
+                return view('home');
             }else{
                 echo "Loggin is not successfully confirmed";
             }
