@@ -3,7 +3,7 @@
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
-use App\Http\Controllers\PredictionControllerr;
+use App\Http\Controllers\PredictionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +17,4 @@ Route::get('/showlogindetails', [DataController::class, 'showlogindetails']);
 
 Route::post('/logindetails', [DataController::class, 'logincredentials']);
 
-Route::post('/predict', [PredictionControllerr::class, 'predict']);
+Route::post('/predict', [PredictionController::class, 'predict']);
