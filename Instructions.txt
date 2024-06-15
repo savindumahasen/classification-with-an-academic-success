@@ -1,0 +1,5 @@
+## First of all you need to open this project in google colab or notebook and run that note book for generating the pickle file
+
+## After that open this project again in  particular IDE (ex VS CODE)
+
+## run this by typing python app.py command in VS code terminal
