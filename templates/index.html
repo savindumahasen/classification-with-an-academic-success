@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #000; /* Black color for prediction text */
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .form-group label {
+            position: relative;
+            padding-left: 20px; /* Adjust the space to align with your design */
+        }
+        .form-group label.required::before {
+            content: '*';
+            color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2 class="text-center mb-4">Academic Prediction</h2>
+    <form id="prediction-form">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData1" class="required">Application Order</label>
+                    <input required type="number" class="form-control" id="inputData1" name="inputData1" placeholder="Enter application order">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData2" class="required">Previous Grade</label>
+                    <input required type="number" class="form-control" id="inputData2" name="inputData2" placeholder="Enter previous grade">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData3" class="required">Tuition Fee Update</label>
+                    <input required type="number" class="form-control" id="inputData3" name="inputData3" placeholder="Enter tuition fee up-to-date">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData4" class="required">1st Sem Enrolled</label>
+                    <input required type="number" class="form-control" id="inputData4" name="inputData4" placeholder="Enter 1st semester enrolled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData5" class="required">1st Sem Approved</label>
+                    <input required type="number" class="form-control" id="inputData5" name="inputData5" placeholder="Enter 1st semester approved">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData6" class="required">1st Sem Grade</label>
+                    <input required type="number" class="form-control" id="inputData6" name="inputData6" placeholder="Enter 1st semester grade">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData7" class="required">2nd Sem Enrolled</label>
+                    <input required type="number" class="form-control" id="inputData7" name="inputData7" placeholder="Enter 2nd semester enrolled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData8" class="required">2nd Sem Approved</label>
+                    <input required type="number" class="form-control" id="inputData8" name="inputData8" placeholder="Enter 2nd semester approved">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="inputData9" class="required">2nd Sem Grade</label>
+                    <input required type="number" class="form-control" id="inputData9" name="inputData9" placeholder="Enter 2nd semester grade">
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-block" id="predict-btn">Predict</button>
+        <div id="result" class="text-center mt-4"></div>
+        <div id="error-message" class="error-message"></div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#predict-btn').click(function() {
+            if (validateForm()) {
+                var inputData = {
+                    inputData1: $('#inputData1').val(),
+                    inputData2: $('#inputData2').val(),
+                    inputData3: $('#inputData3').val(),
+                    inputData4: $('#inputData4').val(),
+                    inputData5: $('#inputData5').val(),
+                    inputData6: $('#inputData6').val(),
+                    inputData7: $('#inputData7').val(),
+                    inputData8: $('#inputData8').val(),
+                    inputData9: $('#inputData9').val()
+                };
+
+                $.ajax({
+                    url: '/predict',
+                    method: 'POST',
+                    data: inputData,
+                    success: function(response) {
+                        var prediction = response.prediction;
+                        var predictionText = 'Prediction: ' + prediction;
+                        $('#result').text(predictionText);
+                    },
+                    error: function(response) {
+                        $('#result').html('Error: ' + response.responseJSON.message);
+                    }
+                });
+            }
+        });
+
+        function validateForm() {
+            var isValid = true;
+            $('.form-control').each(function() {
+                if ($(this).val() === '') {
+                    isValid = false;
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+
+            if (!isValid) {
+                $('#error-message').text('Please enter numeric values for all fields.');
+            } else {
+                $('#error-message').text('');
+            }
+
+            return isValid;
+        }
+    });
+</script>
+
+</body>
+</html>
