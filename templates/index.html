@@ -146,7 +146,8 @@
                 $.ajax({
                     url: '/predict',
                     method: 'POST',
-                    data: inputData,
+                    contentType: 'application/json',
+                    data: JSON.stringify(inputData),
                     success: function(response) {
                         var prediction = response.prediction;
                         var predictionText = 'Prediction: ' + prediction;
